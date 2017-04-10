@@ -75,6 +75,8 @@ module Facebook
           return unless response.key? 'error'
           error = response['error']
 
+          puts "Trace: #{response}"
+
           raise(
             error_class_from_error_code(error['code']),
             (error['error_data'] || error['message'])
